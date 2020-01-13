@@ -47,7 +47,7 @@ def parse_args(args=None):
     parser.add_argument("--checkpoint", type=str,
                         help="Path to pre-trained checkpoint")
     parser.add_argument("--thumt_checkpoint", type=str,
-                        help="Path to pre-trained thumt model checkpoint")
+                        required=True, help="Path to pre-trained thumt model checkpoint")
 
     # model and configuration
     parser.add_argument("--model", type=str, required=True,
@@ -318,16 +318,16 @@ def restore_trained_variables(checkpoint):
     return tf.group(*ops, name="restore_trained_op")
 
 
-def restore_ctx_variables(checkpoint):
+def restore_aligning_variables(checkpoint):
     """
     only restore the ctx
     """
 
     if not checkpoint:
-        return tf.no_op("restore_ctx_op")
+        return tf.no_op("restore_aligning_op")
 
     # Load checkpoints
-    tf.logging.info("Loading ct form %s" % checkpoint)
+    tf.logging.info("Loading ligning vars from %s" % checkpoint)
     var_list = tf.train.list_variables(checkpoint)
     reader = tf.train.load_checkpoint(checkpoint)
     values = {}
@@ -338,7 +338,7 @@ def restore_ctx_variables(checkpoint):
         values[name] = tensor
 
     ctx_var_list = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES,
-                                         "transformer/context")
+                                         "transformer/aligning")
 
 
     #var_list = tf.trainable_variables()
@@ -351,7 +351,7 @@ def restore_ctx_variables(checkpoint):
             tf.logging.info("Restore vars of ct %s" % var.name)
             ops.append(tf.assign(var, values[name]))
 
-    return tf.group(*ops, name="restore_ctx_op")
+    return tf.group(*ops, name="restore_aligning_op")
 
 
 def restore_variables(checkpoint):
@@ -465,7 +465,7 @@ def main(args):
         loss, ops = optimize.create_train_op(loss, opt, global_step, params)
 
         restore_trained_op = restore_trained_variables(args.thumt_checkpoint)
-        restore_ctx_op = restore_ctx_variables(args.checkpoint)
+        restore_ctx_op = restore_aligning_variables(args.checkpoint)
 
         # Validation
         if params.validation and params.references[0]:

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData">
+    <serverData>
+      <paths name="guodong@127.0.0.1:12347 (2)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$/../THUMT-master" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="local_noah">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$/../THUMT-master" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="local_vwang">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$/../THUMT-master" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="noahnew">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$/../THUMT-master" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="vwang@localhost:6000">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$/../THUMT-master" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="vwang@localhost:6000 (1)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$/../THUMT-master" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

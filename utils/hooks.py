@@ -159,8 +159,8 @@ def _evaluate(eval_fn, input_fn, decode_fn, path, config):
                 outputs = sess.run(predictions, feed_dict={
                     placeholders["source"]: feats["source"],
                     placeholders["source_length"]: feats["source_length"],
-                    placeholders["context"]: feats["context"],
-                    placeholders["context_sen_len"]: feats["context_sen_len"]
+                    # placeholders["context"]: feats["context"],
+                    # placeholders["context_sen_len"]: feats["context_sen_len"]
 
                 })
                 # shape: [batch, len]
